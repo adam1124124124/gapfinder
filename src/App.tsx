@@ -5,16 +5,50 @@ const KVAMDEX_PREMIUM_PCT = 7.16;
 const INITIAL_AMOUNT = 1000;
 const SCAN_DURATION_MS = 5000;
 
-const EXCHANGES = ["BYBIT", "KvamDex", "MEXC", "OKX", "Gate.io", "Bitget"];
+const EXCHANGES = [  
+  "BYBIT",
+  "KvamDex",
+  "MEXC",
+  "OKX",
+  "Gate.io",
+  "Bitget",
+  "Binance",
+  "Kraken",
+  "Coinbase",
+  "Huobi",
+  "KuCoin",
+  "Gemini",
+  "Crypto.com",
+  "Bitfinex",
+  "Bitstamp"];
+
 const COINS = [
-  "🪙 BTC",
-  "💎 ETH",
-  "☀️ SOL",
-  "🐕 DOGE",
-  "🐸 PEPE",
-  "🐕 SHIB",
-  "🔺 TRX",
+"🪙 BTC"    // Bitcoin
+"💎 ETH"    // Ethereum
+"🟡 BNB"    // Binance Coin
+"🔴 ADA"    // Cardano
+"☀️ SOL"    // Solana
+"🔵 DOT"    // Polkadot
+"🐕 DOGE"   // Dogecoin
+"⚡ MATIC"  // Polygon
+"🔗 LINK"   // Chainlink
+"🔶 LTC"    // Litecoin
+"🟠 XRP"    // Ripple
+"🟢 AVAX"   // Avalanche
+"🐸 PEPE"   // Pepe
+"🐕 SHIB"   // Shiba Inu
+"🔺 TRX"    // Tron
+"💜 UNI"    // Uniswap
+"💚 ALGO"   // Algorand
+"💙 ATOM"   // Cosmos
+"🧡 FTM"    // Fantom
+"🌙 NEAR"   // Near Protocol
+
 ];
+
+// Скорости анимации
+const IDLE_SPEED = 800;  // Медленная скорость на главном экране
+const SCAN_SPEED = 150;  // Быстрая скорость во время сканирования
 
 interface BybitTickerResponse {
   retCode: number;
@@ -68,19 +102,22 @@ function App() {
   };
 
   useEffect(() => {
-    if (isScanning || showResults) {
-      cycleIntervalRef.current = window.setInterval(() => {
-        setCurrentExchange((prev) => (prev + 1) % EXCHANGES.length);
-        setCurrentCoin((prev) => (prev + 1) % COINS.length);
-      }, 300);
-    } else {
-      if (cycleIntervalRef.current) clearInterval(cycleIntervalRef.current);
-    }
+    // Определяем скорость в зависимости от статуса сканирования
+    const speed = isScanning ? SCAN_SPEED : IDLE_SPEED;
+
+    // Очищаем предыдущий интервал
+    if (cycleIntervalRef.current) clearInterval(cycleIntervalRef.current);
+
+    // Создаём новый интервал с нужной скоростью
+    cycleIntervalRef.current = window.setInterval(() => {
+      setCurrentExchange((prev) => (prev + 1) % EXCHANGES.length);
+      setCurrentCoin((prev) => (prev + 1) % COINS.length);
+    }, speed);
 
     return () => {
       if (cycleIntervalRef.current) clearInterval(cycleIntervalRef.current);
     };
-  }, [isScanning, showResults]);
+  }, [isScanning]); // Перезапускаем при изменении isScanning
 
   const startScan = async () => {
     await fetchBybitPrice();
