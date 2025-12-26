@@ -569,3 +569,14 @@ body {
   color: var(--error-red);
 }
 
+.inline-link {
+  color: var(--neon-blue);
+  text-decoration: underline;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.inline-link:hover {
+  opacity: 0.8;
+}
+
