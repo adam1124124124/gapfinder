@@ -256,14 +256,21 @@ function App() {
         </div>
       </div>
 
-      <div className="action-steps">
-        <p><strong>🎯 Ready to start?</strong></p>
-        <ol>
-          <li>Open accounts on Bybit + KvamDex</li>
-          <li>Wait for gap notification (Telegram bot)</li>
-          <li>Execute trades within 2-3 minutes</li>
-        </ol>
-      </div>
+<div className="action-steps">
+  <p><strong>🎯 How to execute this arbitrage:</strong></p>
+  <ol>
+    <li>Register on Bybit and KvamDex</li>
+    <li>Buy TRX on Bybit with USDT</li>
+    <li>Transfer TRX to KvamDex (TRC-20 network)</li>
+    <li>Sell TRX for USDT on KvamDex at higher rate</li>
+    <li>Withdraw profit back to Bybit</li>
+  </ol>
+  <p className="action-warning">
+    ⚠️ <strong>Note:</strong> Real gaps appear randomly and close in 2-5 minutes. 
+    Contact us for live opportunities.
+  </p>
+</div>
+
     </div>
 
     <div className="results-grid">
