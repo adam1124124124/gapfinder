@@ -282,7 +282,7 @@ function App() {
           <span className="calc-value">1000 USDT</span>
         </div>
         <div className="calc-row">
-          <span>Buy TRX on Bybit @ ${bybitPrice.toFixed(4)}:</span>
+          <span>Buy TRX on Bybit for ${bybitPrice.toFixed(4)}:</span>
           <span className="calc-value">{(INITIAL_AMOUNT / bybitPrice).toFixed(0)} TRX</span>
         </div>
         <div className="calc-row highlight-calc">
@@ -290,7 +290,7 @@ function App() {
           <span className="calc-value">{(INITIAL_AMOUNT / bybitPrice).toFixed(0)} TRX</span>
         </div>
         <div className="calc-row">
-          <span>Sell TRX on KvamDex @ ${kvamDexPrice.toFixed(4)}:</span>
+          <span>Sell TRX on KvamDex for ${kvamDexPrice.toFixed(4)}:</span>
           <span className="calc-value">{finalUSDT.toFixed(2)} USDT</span>
         </div>
         <div className="calc-row profit-row">
@@ -304,7 +304,7 @@ function App() {
         <ol>
           <li>Register on Bybit and KvamDex</li>
           <li>Buy TRX on Bybit with USDT</li>
-          <li>Transfer TRX to KvamDex (TRC-20 network)</li>
+          <li>Transfer TRX to KvamDex</li>
           <li>Sell TRX for USDT on KvamDex</li>
           <li>Withdraw profit back</li>
         </ol>
