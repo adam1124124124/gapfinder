@@ -140,8 +140,11 @@ function App() {
       {EXCHANGES[(currentExchange + 1) % EXCHANGES.length]}
     </span>
   </div>
-  <span className="pill coin-pill">{COINS[currentCoin]}</span>
+  <div className="coin-row">
+    <span className="pill coin-pill">{COINS[currentCoin]}</span>
+  </div>
 </div>
+
 
 
 
