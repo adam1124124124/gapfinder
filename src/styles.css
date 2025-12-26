@@ -44,9 +44,11 @@ body {
   margin-bottom: 40px;
   min-height: 50px;
   display: flex;
+  flex-direction: column;  /* ← ДОБАВЬ ЭТУ СТРОКУ */
   align-items: center;
   justify-content: center;
 }
+
 
 .cycle-row {
   display: flex;
@@ -359,26 +361,6 @@ body {
     opacity: 1; 
     transform: scale(1.15); 
   }
-}
-
-/* Превью гэпа */
-.gap-preview {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin: 0.8rem 0;
-  font-size: 0.95rem;
-}
-
-.gap-label {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.gap-value {
-  color: #00ff88;
-  font-weight: 600;
-  font-size: 1.1rem;
 }
 
 /* Строка с монетой под биржами */
