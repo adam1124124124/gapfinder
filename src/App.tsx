@@ -301,13 +301,23 @@ function App() {
 
       <div className="action-steps">
         <p><strong>🎯 How to easy:</strong></p>
-        <ol>
-          <li>Register on Bybit and KvamDex</li>
-          <li>Buy TRX on Bybit with USDT</li>
-          <li>Transfer TRX to KvamDex</li>
-          <li>Sell TRX for USDT on KvamDex</li>
-          <li>Withdraw profit back</li>
-        </ol>
+<ol>
+  <li>
+    Register on{" "}
+    <a href={BYBIT_URL} target="_blank" rel="noopener noreferrer" className="inline-link">
+      Bybit
+    </a>
+    {" "}and{" "}
+    <a href={KVAMDEX_URL} target="_blank" rel="noopener noreferrer" className="inline-link">
+      KvamDex
+    </a>
+  </li>
+  <li>Buy TRX on Bybit with USDT</li>
+  <li>Transfer TRX to KvamDex (TRC-20 network)</li>
+  <li>Sell TRX for USDT on KvamDex</li>
+  <li>Withdraw profit back</li>
+</ol>
+
       </div>
     </div>
 
