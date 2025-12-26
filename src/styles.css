@@ -580,3 +580,25 @@ body {
   opacity: 0.8;
 }
 
+.countdown-timer {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--neon-purple);
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
+  margin-top: 8px;
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+}
+
+.inline-link {
+  color: var(--neon-blue);
+  text-decoration: underline;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.inline-link:hover {
+  opacity: 0.8;
+}
+
+
