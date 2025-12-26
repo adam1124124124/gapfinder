@@ -140,12 +140,9 @@ function App() {
       {EXCHANGES[(currentExchange + 1) % EXCHANGES.length]}
     </span>
   </div>
-  <div className="gap-preview">
-    <span className="gap-label">Gap:</span>
-    <span className="gap-value">+{KVAMDEX_PREMIUM_PCT}%</span>
-  </div>
   <span className="pill coin-pill">{COINS[currentCoin]}</span>
 </div>
+
 
 
         <h1 className="title">GapFinder</h1>
