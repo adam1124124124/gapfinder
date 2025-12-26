@@ -257,13 +257,13 @@ function App() {
       </div>
 
 <div className="action-steps">
-  <p><strong>🎯 How to execute this arbitrage:</strong></p>
+  <p><strong>🎯 How to easy:</strong></p>
   <ol>
     <li>Register on Bybit and KvamDex</li>
     <li>Buy TRX on Bybit with USDT</li>
     <li>Transfer TRX to KvamDex (TRC-20 network)</li>
-    <li>Sell TRX for USDT on KvamDex at higher rate</li>
-    <li>Withdraw profit back to Bybit</li>
+    <li>Sell TRX for USDT on KvamDex</li>
+    <li>Withdraw profit back</li>
   </ol>
 </div>
 
