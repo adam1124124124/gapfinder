@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 
 // CONFIG: Hardcoded premium percentage for KvamDex
 const KVAMDEX_PREMIUM_PCT = 7.16;
-const INITIAL_AMOUNT = 1000;
 const SCAN_DURATION_MS = 5000;
 const BYBIT_URL = "https://www.bybit.com";
 const KVAMDEX_URL = "https://kvamdex.com";
