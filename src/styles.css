@@ -470,3 +470,87 @@ body {
   text-decoration: underline;
 }
 
+/* Инструкции с расчётами */
+.instructions-card {
+  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.instructions-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--neon-blue);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.calculation-table {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.calc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.calc-row.highlight-calc {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.calc-row.profit-row {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid var(--neon-green);
+  margin-top: 8px;
+}
+
+.calc-value {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.calc-profit {
+  font-weight: 700;
+  color: var(--neon-green);
+  font-size: 16px;
+}
+
+.action-steps {
+  padding: 16px;
+  background: rgba(168, 85, 247, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.action-steps p {
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: var(--text-primary);
+}
+
+.action-steps ol {
+  margin-left: 20px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.action-steps li {
+  margin-bottom: 8px;
+}
+
+.action-steps li:last-child {
+  margin-bottom: 0;
+}
+
