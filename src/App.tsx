@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react";
 const KVAMDEX_PREMIUM_PCT = 7.16;
 const INITIAL_AMOUNT = 1000;
 const SCAN_DURATION_MS = 5000;
-const PRICE_FETCH_INTERVAL_MS = 10000;
 
 const EXCHANGES = ["BYBIT", "KvamDex", "MEXC", "OKX", "Gate.io", "Bitget"];
 const COINS = [
@@ -36,11 +35,10 @@ function App() {
   const [isScanning, setIsScanning] = useState(false);
   const [scanProgress, setScanProgress] = useState(0);
   const [showResults, setShowResults] = useState(false);
-  const [showData, setShowData] = useState(false); // ✅ ДОБАВЛЕНО
+  const [showData, setShowData] = useState(false);
   const [currentExchange, setCurrentExchange] = useState(0);
   const [currentCoin, setCurrentCoin] = useState(0);
 
-  const intervalRef = useRef<number | null>(null);
   const scanIntervalRef = useRef<number | null>(null);
   const cycleIntervalRef = useRef<number | null>(null);
 
@@ -69,8 +67,6 @@ function App() {
     }
   };
 
-  // ✅ УДАЛЁН useEffect с автозагрузкой
-
   useEffect(() => {
     if (isScanning || showResults) {
       cycleIntervalRef.current = window.setInterval(() => {
@@ -88,7 +84,7 @@ function App() {
 
   const startScan = async () => {
     await fetchBybitPrice();
-    setShowData(true); // ✅ ДОБАВЛЕНО
+    setShowData(true);
 
     setIsScanning(true);
     setShowResults(false);
@@ -160,7 +156,6 @@ function App() {
               </div>
             </div>
           )}
-
 
         {!isScanning && !showResults && (
           <button
