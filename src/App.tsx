@@ -272,17 +272,17 @@ useEffect(() => {
 
 {showResults && bybitPrice && kvamDexPrice && (
   <div className="results-card">
-    <h2 className="results-title">✅ Gap Found!</h2>
+    <h2 className="results-title">✅ Profitable Gap Found!</h2>
     <div className="live-indicator">
   <span className="pulse-dot"></span>
-  Updated 3 seconds ago
+  Live data - Updated 3s ago
 </div>
-    <p className="results-subtitle">Bybit ↔ KvamDex</p>
+    <p className="results-subtitle">Buy on Bybit → Sell on KvamDex</p>
 
     <div className="results-grid">
       <div className="result-item">
         <span className="result-label">
-          Bybit Rate
+          Buy price (Bybit)
           <a 
             href={BYBIT_URL} 
             target="_blank" 
@@ -296,7 +296,7 @@ useEffect(() => {
       </div>
       <div className="result-item">
         <span className="result-label">
-          KvamDex Rate
+          Sell price (KvamDex)
           <a 
             href={KVAMDEX_URL} 
             target="_blank" 
@@ -309,12 +309,12 @@ useEffect(() => {
         <span className="result-value">${kvamDexPrice.toFixed(6)}</span>
       </div>
       <div className="result-item highlight-item">
-        <span className="result-label">Gap</span>
+        <span className="result-label">Price difference:</span>
         <span className="result-value gap">+{gapPct.toFixed(2)}%</span>
       </div>
       <div className="result-item highlight-item">
         <span className="result-label">
-          Extra on {INITIAL_AMOUNT} USDT
+          Your profit per {INITIAL_AMOUNT} USDT
         </span>
         <span className="result-value profit">
           +${extraUSDT.toFixed(2)} ({finalUSDT.toFixed(2)} USDT)
@@ -327,23 +327,23 @@ useEffect(() => {
       
       <div className="calculation-table">
         <div className="calc-row">
-          <span>Starting Balance:</span>
+          <span>1️⃣Starting Balance:</span>
           <span className="calc-value">1000 USDT</span>
         </div>
         <div className="calc-row">
-          <span>Buy TRX on Bybit for ${bybitPrice.toFixed(4)}:</span>
+          <span>2️⃣Buy TRX on Bybit for ${bybitPrice.toFixed(4)}:</span>
           <span className="calc-value">{(INITIAL_AMOUNT / bybitPrice).toFixed(0)} TRX</span>
         </div>
         <div className="calc-row highlight-calc">
-          <span>Transfer TRX → KvamDex:</span>
+          <span>3️⃣Transfer TRX → KvamDex:</span>
           <span className="calc-value">{(INITIAL_AMOUNT / bybitPrice).toFixed(0)} TRX</span>
         </div>
         <div className="calc-row">
-          <span>Sell TRX on KvamDex for ${kvamDexPrice.toFixed(4)}:</span>
+          <span>4️⃣Sell TRX on KvamDex for ${kvamDexPrice.toFixed(4)}:</span>
           <span className="calc-value">{finalUSDT.toFixed(2)} USDT</span>
         </div>
         <div className="calc-row profit-row">
-          <span><strong>NET PROFIT:</strong></span>
+          <span><strong>✅NET PROFIT:</strong></span>
           <span className="calc-profit">+${extraUSDT.toFixed(2)} ({gapPct.toFixed(2)}%)</span>
         </div>
       </div>
