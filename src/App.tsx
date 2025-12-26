@@ -120,10 +120,6 @@ function App() {
     }, 50);
   };
 
-  const resetScan = () => {
-    setShowResults(false);
-    setScanProgress(0);
-  };
 
   const gapPct =
     bybitPrice && kvamDexPrice
