@@ -5,46 +5,9 @@ const KVAMDEX_PREMIUM_PCT = 7.16;
 const INITIAL_AMOUNT = 1000;
 const SCAN_DURATION_MS = 5000;
 
-const EXCHANGES = [  
-  "BYBIT",
-  "KvamDex",
-  "MEXC",
-  "OKX",
-  "Gate.io",
-  "Bitget",
-  "Binance",
-  "Kraken",
-  "Coinbase",
-  "Huobi",
-  "KuCoin",
-  "Gemini",
-  "Crypto.com",
-  "Bitfinex",
-  "Bitstamp"];
+const EXCHANGES = ["BYBIT", "KvamDex", "MEXC", "OKX", "Gate.io", "Bitget", "Binance", "Kraken", "Coinbase", "Huobi", "KuCoin", "Gemini"];
 
-const COINS = [
-"🪙 BTC"    // Bitcoin
-"💎 ETH"    // Ethereum
-"🟡 BNB"    // Binance Coin
-"🔴 ADA"    // Cardano
-"☀️ SOL"    // Solana
-"🔵 DOT"    // Polkadot
-"🐕 DOGE"   // Dogecoin
-"⚡ MATIC"  // Polygon
-"🔗 LINK"   // Chainlink
-"🔶 LTC"    // Litecoin
-"🟠 XRP"    // Ripple
-"🟢 AVAX"   // Avalanche
-"🐸 PEPE"   // Pepe
-"🐕 SHIB"   // Shiba Inu
-"🔺 TRX"    // Tron
-"💜 UNI"    // Uniswap
-"💚 ALGO"   // Algorand
-"💙 ATOM"   // Cosmos
-"🧡 FTM"    // Fantom
-"🌙 NEAR"   // Near Protocol
-
-];
+const COINS = ["🪙 BTC", "💎 ETH", "☀️ SOL", "🐕 DOGE", "🐸 PEPE", "🐕 SHIB", "🔺 TRX", "⚡ MATIC", "🔵 DOT", "🟢 AVAX", "🔴 ADA", "🟡 BNB"];
 
 // Скорости анимации
 const IDLE_SPEED = 800;  // Медленная скорость на главном экране
