@@ -231,7 +231,7 @@ function App() {
     <p className="results-subtitle">Bybit ↔ KvamDex</p>
 
     <div className="instructions-card">
-      <h3 className="instructions-title">💰 Profit Calculation Example</h3>
+      <h3 className="instructions-title">💰 Profit Calculation</h3>
       
       <div className="calculation-table">
         <div className="calc-row">
