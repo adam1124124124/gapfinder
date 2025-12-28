@@ -218,7 +218,7 @@ const extraUSDT = finalUSDT - investAmount;
           </div>
         )}
 
-        <h1 className="title">GapFinder</h1>
+        <h1 className="title">GapHunter</h1>
 {!showResults && (
   <p className="subtitle">Find profitable arbitrage opportunities</p>
 )}
@@ -408,7 +408,7 @@ Your profit per {investAmount} USDT
     </a>
 
     <p className="contact-footer">
-      If GapFinder helped you, I’d be happy to hear it. Questions or ideas? Reach out on Telegram:{" "}
+      If GapHunter helped you, I’d be happy to hear it. Questions or ideas? Reach out on Telegram:{" "}
       <a 
         href={TELEGRAM_CONTACT}
         target="_blank"
