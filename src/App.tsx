@@ -99,30 +99,40 @@ const response = await fetch("/api/bybit");
     };
   }, [isScanning, showResults]);
 
-  const startScan = async () => {
-    await fetchBybitPrice();
-    setShowData(true);
+const startScan = async () => {
+  await fetchBybitPrice();
+  setShowData(true);
 
-    setIsScanning(true);
-    setShowResults(false);
-    setScanProgress(0);
+  setIsScanning(true);
+  setShowResults(false);
+  setScanProgress(0);
 
-    const startTime = Date.now();
-    scanIntervalRef.current = window.setInterval(() => {
-      const elapsed = Date.now() - startTime;
-      const progress = Math.min((elapsed / SCAN_DURATION_MS) * 100, 100);
-      setScanProgress(progress);
+  const startTime = Date.now();
+  scanIntervalRef.current = window.setInterval(() => {
+    const elapsed = Date.now() - startTime;
+    const progress = Math.min((elapsed / SCAN_DURATION_MS) * 100, 100);
+    setScanProgress(progress);
 
-      if (progress >= 100) {
-        if (scanIntervalRef.current) clearInterval(scanIntervalRef.current);
+    if (progress >= 100) {
+      if (scanIntervalRef.current) clearInterval(scanIntervalRef.current);
+      
+      setTimeout(() => {
+        setIsScanning(false);
+        setShowResults(true);
         
-        setTimeout(() => {
-          setIsScanning(false);
-          setShowResults(true);
-        }, 1500);
-      }
-    }, 50);
-  };
+        // Сохраняем результаты в localStorage
+        if (bybitPrice && kvamDexPrice) {
+          localStorage.setItem('scanResults', JSON.stringify({
+            bybit: bybitPrice,
+            kvamdex: kvamDexPrice,
+            timestamp: Date.now()
+          }));
+        }
+      }, 1500);
+    }
+  }, 50);
+};
+
 
   
 useEffect(() => {
@@ -161,6 +171,28 @@ useEffect(() => {
 
   return () => clearInterval(timerInterval);
 }, [showResults]);
+
+  
+// Восстановление результатов из localStorage при загрузке
+useEffect(() => {
+  const savedResults = localStorage.getItem('scanResults');
+  if (savedResults) {
+    const { bybit, kvamdex, timestamp } = JSON.parse(savedResults);
+    
+    // Показываем результаты, если они не старше 24 часов
+    const now = Date.now();
+    if (now - timestamp < 24 * 60 * 60 * 1000) {
+      setBybitPrice(bybit);
+      setKvamDexPrice(kvamdex);
+      setShowResults(true);
+      setShowData(true);
+    } else {
+      // Удаляем устаревшие результаты
+      localStorage.removeItem('scanResults');
+    }
+  }
+}, []);
+
 
 
   const gapPct =
