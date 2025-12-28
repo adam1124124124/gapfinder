@@ -287,16 +287,18 @@ border-top: 1px solid var(--border-muted);
 .btn-hunt {
   background: linear-gradient(135deg, rgba(124,92,255,0.95), rgba(0,214,163,0.95));
   color: #071018;
-  font-size: 20px;           /* было 16px */
-  font-weight: 700;          /* было 600 */
-  padding: 24px 64px;        /* было 18px 48px */
-  min-height: 64px;          /* было 52px */
+  font-size: 44px;           /* как у .title */
+  font-weight: 700;
+  padding: 20px 56px;        /* меньше вертикальный padding */
+  min-height: auto;          /* убираем фиксированную высоту */
   border: none;
-  border-radius: 16px;       /* было 12px */
+  border-radius: 16px;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 10px 30px rgba(0, 214, 163, 0.18), 0 8px 24px rgba(124, 92, 255, 0.14);
+  box-shadow: 0 12px 36px rgba(0, 214, 163, 0.20), 0 10px 28px rgba(124, 92, 255, 0.16);
+  letter-spacing: -0.02em;   /* как у заголовка, тайтнее */
 }
+
 
 
 .btn-hunt:hover:not(:disabled) {
@@ -655,9 +657,10 @@ text-shadow: 0 0 14px rgba(124, 92, 255, 0.4);
   }
 
   .btn-hunt {
-    font-size: 16px;
-    padding: 16px 40px;
+    font-size: 28px;        /* ← МЕНЯЙ: было 16px, стало 28px (как .title на мобилке) */
+    padding: 14px 32px;     /* ← МЕНЯЙ: чуть меньше padding, чтоб не вылезало */
   }
+
 
   .results-card {
     padding: 16px;
