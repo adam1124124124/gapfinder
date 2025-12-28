@@ -281,7 +281,7 @@ const extraUSDT = finalUSDT - investAmount;
   <span className="pulse-dot"></span>
   Live data - Updated 3s ago
 </div>
-    <p className="results-subtitle">Buy on Bybit → Sell on KvamDex</p>
+    <p className="results-subtitle"></p>
 
     <div className="results-grid">
       <div className="result-item">
