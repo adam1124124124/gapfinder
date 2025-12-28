@@ -284,21 +284,20 @@ border-top: 1px solid var(--border-muted);
   font-size: 18px;
 }
 
-/* Hunt button */
 .btn-hunt {
-background: linear-gradient(135deg, rgba(124,92,255,0.95), rgba(0,214,163,0.95));
-color: #071018;
-font-size: 16px;
-font-weight: 600;
-padding: 18px 48px;
-min-height: 52px;
-border: none;
-border-radius: 12px;
-cursor: pointer;
-transition: transform 0.2s, box-shadow 0.2s;
-box-shadow: 0 10px 30px rgba(0, 214, 163, 0.18), 0 8px 24px rgba(124, 92, 255, 0.14);
-
+  background: linear-gradient(135deg, rgba(124,92,255,0.95), rgba(0,214,163,0.95));
+  color: #071018;
+  font-size: 20px;           /* было 16px */
+  font-weight: 700;          /* было 600 */
+  padding: 24px 64px;        /* было 18px 48px */
+  min-height: 64px;          /* было 52px */
+  border: none;
+  border-radius: 16px;       /* было 12px */
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 10px 30px rgba(0, 214, 163, 0.18), 0 8px 24px rgba(124, 92, 255, 0.14);
 }
+
 
 .btn-hunt:hover:not(:disabled) {
   transform: scale(1.02) translateY(-2px);
