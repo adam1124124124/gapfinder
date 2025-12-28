@@ -58,29 +58,39 @@ function App() {
   const [investAmount, setInvestAmount] = useState(1000);
 
 
-  const fetchBybitPrice = async () => {
-    try {
-const response = await fetch("/api/bybit");
+const fetchBybitPrice = async () => {
+  try {
+    const response = await fetch("/api/bybit");
 
-      if (!response.ok) {
-        throw new Error(`HTTP error ${response.status}`);
-      }
-      const data: BybitTickerResponse = await response.json();
-
-      if (data.retCode !== 0 || !data.result?.list?.[0]?.lastPrice) {
-        throw new Error("Invalid response from Bybit API");
-      }
-
-      const price = parseFloat(data.result.list[0].lastPrice);
-      setBybitPrice(price);
-      setKvamDexPrice(price * (1 + KVAMDEX_PREMIUM_PCT / 100));
-      setError(null);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to fetch price");
-      setBybitPrice(null);
-      setKvamDexPrice(null);
+    if (!response.ok) {
+      throw new Error(`HTTP error ${response.status}`);
     }
-  };
+    const data: BybitTickerResponse = await response.json();
+
+    if (data.retCode !== 0 || !data.result?.list?.[0]?.lastPrice) {
+      throw new Error("Invalid response from Bybit API");
+    }
+
+    const price = parseFloat(data.result.list[0].lastPrice);
+    const kvamdex = price * (1 + KVAMDEX_PREMIUM_PCT / 100);
+    
+    setBybitPrice(price);
+    setKvamDexPrice(kvamdex);
+    setError(null);
+    
+    // Сохраняем в localStorage СРАЗУ после получения
+    localStorage.setItem('scanResults', JSON.stringify({
+      bybit: price,
+      kvamdex: kvamdex,
+      timestamp: Date.now()
+    }));
+  } catch (err) {
+    setError(err instanceof Error ? err.message : "Failed to fetch price");
+    setBybitPrice(null);
+    setKvamDexPrice(null);
+  }
+};
+
 
   useEffect(() => {
     if (showResults) return;
@@ -119,19 +129,11 @@ const startScan = async () => {
       setTimeout(() => {
         setIsScanning(false);
         setShowResults(true);
-        
-        // Сохраняем результаты в localStorage
-        if (bybitPrice && kvamDexPrice) {
-          localStorage.setItem('scanResults', JSON.stringify({
-            bybit: bybitPrice,
-            kvamdex: kvamDexPrice,
-            timestamp: Date.now()
-          }));
-        }
       }, 1500);
     }
   }, 50);
 };
+
 
 
   
