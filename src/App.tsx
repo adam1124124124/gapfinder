@@ -331,7 +331,7 @@ Your profit per {investAmount} USDT
       
 <div className="calculation-table">
   <div className="amount-selector">
-    <label className="amount-label">Starting Balance:</label>
+    <label className="amount-label"></label>
     <div className="amount-display">{investAmount.toLocaleString()} USDT</div>
     <input 
       type="range" 
