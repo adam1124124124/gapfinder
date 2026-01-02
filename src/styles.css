@@ -798,3 +798,11 @@ text-shadow: 0 0 14px rgba(124, 92, 255, 0.4);
   }
 }
 
+.action-steps ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.action-steps li {
+  margin-bottom: 8px;
+}
