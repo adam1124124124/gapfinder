@@ -382,24 +382,7 @@ Your profit per {investAmount} USDT
     </div>
   </div>
 
-  <div className="calc-row">
-    <span>1️⃣ Buy TRX on Bybit @ ${bybitPrice.toFixed(4)}:</span>
-    <span className="calc-value">{(investAmount / bybitPrice).toFixed(0)} TRX</span>
-  </div>
-  <div className="calc-row highlight-calc">
-    <span>2️⃣ Transfer TRX → KvamDex:</span>
-    <span className="calc-value">{(investAmount / bybitPrice).toFixed(0)} TRX</span>
-  </div>
-  <div className="calc-row">
-    <span>3️⃣ Sell TRX on KvamDex @ ${kvamDexPrice.toFixed(4)}:</span>
-    <span className="calc-value">{((investAmount / bybitPrice) * kvamDexPrice).toFixed(2)} USDT</span>
-  </div>
-  <div className="calc-row profit-row">
-    <span><strong>✅ NET PROFIT:</strong></span>
-    <span className="calc-profit">
-      +${((investAmount / bybitPrice) * kvamDexPrice - investAmount).toFixed(2)} ({gapPct.toFixed(2)}%)
-    </span>
-  </div>
+
 </div>
 
 
