@@ -49,9 +49,6 @@ function App() {
   const [showData, setShowData] = useState(false);
   const [currentExchange, setCurrentExchange] = useState(0);
   const [currentCoin, setCurrentCoin] = useState(0);
-  const [timeRemaining, setTimeRemaining] = useState<string>("");
-
-
   const scanIntervalRef = useRef<number | null>(null);
   const cycleIntervalRef = useRef<number | null>(null);
 
