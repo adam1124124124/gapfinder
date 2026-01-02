@@ -134,46 +134,6 @@ const startScan = async () => {
   }, 50);
 };
 
-
-
-  
-useEffect(() => {
-  if (!showResults) return;
-
-  const firstSearchTime = localStorage.getItem('firstSearchTime');
-  const now = Date.now();
-  
-  if (!firstSearchTime) {
-    localStorage.setItem('firstSearchTime', now.toString());
-  }
-
-  const searchTime = parseInt(firstSearchTime || now.toString());
-  const resetTime = searchTime + (24 * 60 * 60 * 1000);
-
-  const updateTimer = () => {
-    const remaining = resetTime - Date.now();
-    
-    if (remaining <= 0) {
-      localStorage.removeItem('firstSearchTime');
-      setTimeRemaining("00:00:00");
-      return;
-    }
-
-    const hours = Math.floor(remaining / (1000 * 60 * 60));
-    const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
-
-    setTimeRemaining(
-      `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
-    );
-  };
-
-  updateTimer();
-  const timerInterval = setInterval(updateTimer, 1000);
-
-  return () => clearInterval(timerInterval);
-}, [showResults]);
-
   
 // Восстановление результатов из localStorage при загрузке
 useEffect(() => {
@@ -408,11 +368,6 @@ Your profit per {investAmount} USDT
       </div>
     </div>
 
-<div className="limit-notice">
-  <p className="limit-text">⏳ Free scan limit reached!</p>
-  <p className="limit-subtext">Next free scan in:</p>
-  <p className="countdown-timer">{timeRemaining}</p>
-</div>
 
 
     <a 
