@@ -318,7 +318,7 @@ Your profit per {investAmount} USDT
     </div>
 
     <div className="instructions-card">
-      <h3 className="instructions-title">💰 Profit Calculation</h3>
+      <h3 className="instructions-title">🚀 Position Size</h3>
       
 <div className="calculation-table">
   <div className="amount-selector">
