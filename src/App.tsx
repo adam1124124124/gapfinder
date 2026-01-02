@@ -374,7 +374,7 @@ Your profit per {investAmount} USDT
         setTimeout(() => startScan(), 100);
       }}
     >
-      Scan Again
+      Run new scan
     </button>
 
 
